@@ -6,9 +6,9 @@ export default class Users {
     try {
       const { data } = await axios.get(`${this.baseUrl}/users?page=${pageNum}`);
       if (data) {
-        return data
+        return data;
       } else {
-        throw new Error('Empty response')
+        throw new Error("Empty response");
       }
     } catch (e) {
       console.error(e);
@@ -19,12 +19,39 @@ export default class Users {
     try {
       const { data } = await axios.get(`${this.baseUrl}/users/${id}`);
       if (data) {
-        return data
+        return data;
       } else {
-        throw new Error('Empty response')
+        throw new Error("Empty response");
       }
     } catch (e) {
       console.error(e);
     }
   }
+
+  static async updateUser(id) {
+    try {
+      const { data } = await axios.put(`${this.baseUrl}/users/${id}`);
+      if (data) {
+        return data;
+      } else {
+        throw new Error("Empty response");
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  static async deleteUser(id) {
+    try {
+      const { status } = await axios.delete(`${this.baseUrl}/users/${id}`);
+      if (status === 204) {
+        return true;
+      } else {
+        throw new Error("Empty response");
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
 }
