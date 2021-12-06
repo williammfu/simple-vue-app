@@ -74,17 +74,20 @@
         </tr>
       </tbody>
     </table>
+    <Calculator/>
   </div>
 </template>
 
 <script>
 import Users from "../api/users.js";
 import Modal from "@/components/Modal.vue";
+import Calculator from "@/components/Calculator.vue";
 
 export default {
   name: "MainTable",
   components: {
     Modal,
+    Calculator
   },
   data: function () {
     return {
