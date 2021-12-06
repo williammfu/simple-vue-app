@@ -1,26 +1,29 @@
 <template>
   <div id="app">
-    <MainTable/>
+    <router-view/>
   </div>
 </template>
 
-<script>
-import MainTable from './components/MainTable.vue'
-
-export default {
-  name: 'App',
-  components: {
-    MainTable
-  }
-}
-</script>
-
 <style>
 #app {
-  font-family: Segoe UI, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Segoe UI, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  padding-top: 2rem;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>

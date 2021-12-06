@@ -14,4 +14,17 @@ export default class Users {
       console.error(e);
     }
   }
+
+  static async getUserById(id) {
+    try {
+      const { data } = await axios.get(`${this.baseUrl}/users/${id}`);
+      if (data) {
+        return data
+      } else {
+        throw new Error('Empty response')
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }
 }

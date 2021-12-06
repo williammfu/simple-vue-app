@@ -40,7 +40,11 @@
         <tr v-for="(user, idx) in displayData" :key="idx">
           <td>{{ user.id }}</td>
           <td>
-            <button type="button">See details</button>
+            <router-link
+              :to="{ path: 'user', query: { id: user.id } }"
+              tag="button"
+              >See details</router-link
+            >
             <button type="button">Delete</button>
             <button type="button">Update</button>
           </td>
