@@ -19,7 +19,8 @@
           alt="Fetching result..."
         />
         <div v-else>
-          <h3>Success</h3>
+          <h3>Operation success!</h3>
+          <p>You can close this pop up window</p>
           <button @click="onClose">Close Popup</button>
         </div>
       </div>

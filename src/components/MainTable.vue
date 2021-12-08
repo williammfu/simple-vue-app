@@ -131,7 +131,18 @@ export default {
     },
   },
   methods: {
-    closeModal() {
+    closeModal(id = -1, updated_at = "") {
+      if (id !== -1 && !updated_at) {
+        this.users = [...this.users].map((user) => {
+          if (user.id === id) {
+            return { ...user, updated_at: updated_at };
+          } else {
+            return { ...user };
+          }
+        });
+        this.updated[id - 1] = true;
+        this.$store.dispatch("update", { users: this.users });
+      }
       this.showModal = false;
     },
     onClick(id, command) {
