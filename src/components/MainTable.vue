@@ -3,8 +3,9 @@
     <Modal
       v-if="showModal"
       :question="question"
-      @on-reject="handleReject"
-      @on-confirm="handleAccept"
+      :mode="mode"
+      :id="id"
+      @on-close="closeModal"
     />
     <h2>My Simple Dashboard</h2>
     <div class="taskbar">
@@ -74,12 +75,11 @@
         </tr>
       </tbody>
     </table>
-    <Calculator/>
+    <Calculator />
   </div>
 </template>
 
 <script>
-import Users from "../api/users.js";
 import Modal from "@/components/Modal.vue";
 import Calculator from "@/components/Calculator.vue";
 
@@ -87,7 +87,7 @@ export default {
   name: "MainTable",
   components: {
     Modal,
-    Calculator
+    Calculator,
   },
   data: function () {
     return {
@@ -99,6 +99,8 @@ export default {
       currentCommand: "",
       deleteID: 0,
       updateID: 0,
+      mode: 0,
+      id: 0,
       showModal: false,
       question: "",
     };
@@ -129,32 +131,7 @@ export default {
     },
   },
   methods: {
-    handleReject() {
-      this.showModal = false;
-    },
-    async handleAccept() {
-      if (this.currentCommand === "delete") {
-        try {
-          await Users.deleteUser(this.deleteID);
-        } catch (e) {
-          console.error(e);
-        }
-      } else if (this.currentCommand === "update") {
-        try {
-          const { updatedAt } = await Users.updateUser(this.updateID);
-          this.users = [...this.users].map((e) => {
-            if (e.id === this.updateID) {
-              return { ...e, updated_at: updatedAt };
-            } else {
-              return e;
-            }
-          });
-          this.updated[this.updateID - 1] = true;
-          this.$store.dispatch("update", { users: this.users });
-        } catch (e) {
-          console.error(e);
-        }
-      }
+    closeModal() {
       this.showModal = false;
     },
     onClick(id, command) {
@@ -206,6 +183,7 @@ td {
   box-shadow: 2px 4px 15px rgb(0, 0, 0, 0.15);
   text-align: center;
   padding: 0.5rem;
+  overflow-x: auto;
 }
 .taskbar {
   display: flex;

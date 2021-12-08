@@ -88,6 +88,7 @@ export default {
 }
 .result {
   flex-shrink: 0;
+  font-weight: 700;
   width: 6.5rem;
   text-align: right;
   overflow-x: auto;
