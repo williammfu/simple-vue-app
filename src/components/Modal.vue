@@ -3,8 +3,12 @@
     <div class="modalContent">
       <div class="question">
         <span>{{ question }}</span>
-        <button @click="onReject">No</button>
-        <button @click="onConfirm" style="margin-left: 1rem">Yes, confirm</button>
+        <div style="margin-top: 1.25rem">
+          <button @click="onReject">No</button>
+          <button @click="onConfirm" style="margin-left: 1rem">
+            Yes, confirm
+          </button>
+        </div>
       </div>
     </div>
   </div>

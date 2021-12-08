@@ -202,8 +202,8 @@ td {
 .globalTable {
   width: 85%;
   margin: 1rem auto;
-  border: 1px solid silver;
   border-radius: 5px;
+  box-shadow: 2px 4px 15px rgb(0, 0, 0, 0.15);
   text-align: center;
   padding: 0.5rem;
 }
@@ -216,6 +216,7 @@ td {
   margin: 0.5rem auto;
 }
 .recent {
-  color: turquoise;
+  color: darkturquoise;
+  font-weight: 600;
 }
 </style>

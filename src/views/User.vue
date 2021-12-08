@@ -1,7 +1,14 @@
 <template>
   <div class="about">
     <h1>User Details</h1>
-    <span v-if="isLoading">Fetching result...</span>
+    <span v-if="isLoading">
+      <img
+        src="@/assets/spinner.gif"
+        width="80"
+        height="80"
+        alt="Fetching result..."
+      />
+    </span>
     <div v-else>
       <div v-if="isValid">
         <UserDetails

@@ -9,7 +9,9 @@
         <span>{{ `Employee ID: ${id}` }}</span>
       </div>
     </div>
-    <router-link to="/" tag="button">Back to Home</router-link>
+    <div class="buttonWrapper">
+      <router-link to="/" tag="button">Back to Home</router-link>
+    </div>
   </div>
 </template>
 
@@ -50,5 +52,8 @@ h2 {
 }
 .avatar {
   border-radius: 2px;
+}
+.buttonWrapper {
+  margin-top: 1rem;
 }
 </style>
