@@ -1,11 +1,13 @@
 # simple-vue-app
 
+This is s simple frontend system made on the VueJS Framework (v2.0) along with reqres.in mock API 
+
 ## Project setup
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Compile and Run (Development Mode)
 ```
 npm run serve
 ```
